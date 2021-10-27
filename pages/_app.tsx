@@ -28,6 +28,9 @@ function App({ Component, pageProps }: AppProps) {
 				draggable={false}
 				src={logo}
 				alt=''
+				layout='intrinsic'
+				id='logo-image'
+				objectFit='contain'
 			/>
 		);
 	});
@@ -37,7 +40,9 @@ function App({ Component, pageProps }: AppProps) {
 			<nav>
 				<div className='left'>
 					<Link href='/' passHref={true}>
-						<LogoImage />
+						<a id='logo-link'>
+							<LogoImage />
+						</a>
 					</Link>
 				</div>
 				<div className='right'>
