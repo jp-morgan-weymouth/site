@@ -8,9 +8,6 @@ export default function Home() {
 		<div className='main'>
 			<Head>
 				<title>Perfectly legit bank</title>
-				<meta name='description' content='A Real bank for Real people' />
-				<meta name='theme-color' content='#00ff75' />
-				<link rel='icon' href='/images/SVG/logo.svg' />
 			</Head>
 
 			<section className='start'>
@@ -24,7 +21,7 @@ export default function Home() {
 
 				<h2 id='start-down'>Scroll Down</h2>
 				<div id='image-container'>
-					<Image src={require("../public/images/down.png")} alt='' />
+					<Image src={"/images/down.webp"} alt='' layout='fill' />
 				</div>
 			</section>
 			<section className='scrollarea'>
