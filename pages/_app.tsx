@@ -82,6 +82,11 @@ function App({ Component, pageProps }: AppProps) {
 					<Link href='/products'>Products</Link>
 					<Link href='/contact'>Contact</Link>
 					<Link href='/auth/login'>Log in</Link>
+					<div id='burger'>
+						<div className='block'></div>
+						<div className='block'></div>
+						<div className='block'></div>
+					</div>
 				</div>
 			</nav>
 			<Component {...pageProps} />
