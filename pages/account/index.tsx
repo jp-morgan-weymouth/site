@@ -1,21 +1,17 @@
 import { Session } from "@supabase/supabase-js";
+import Cookies from "js-cookie";
 import { Router, useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { basePath } from "../../utils/config";
 import { supabase } from "../../utils/supabaseClient";
 
-export default function Account() {
+export default function Account({ cookie }: any) {
   let [session, setSession] = useState<Session | null>(null);
   let router = useRouter();
 
-  useEffect(() => {
-    setSession(supabase.auth.session());
-    alert(session);
-    if (!session?.user) router.push("/auth/login");
-  }, [router, session]);
-
   return (
     <>
-      <h1>You are authenticated</h1>
+      <button>Click Me</button>
     </>
   );
 }
