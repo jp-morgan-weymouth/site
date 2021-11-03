@@ -1,7 +1,19 @@
+import { Session } from "@supabase/supabase-js";
 import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { supabase } from "../utils/supabaseClient";
 
 export default function Home() {
+  let [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    setSession(supabase.auth.session());
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
   return (
     <div className="main">
       <Head>

@@ -1,6 +1,7 @@
 import Home from ".";
 import app, { AppProps } from "next/app";
 import Router, { useRouter } from "next/router";
+import { NextResponse, NextRequest } from "next/server";
 import Link from "next/link";
 import Image from "next/image";
 import "../styles/globals.scss";
@@ -17,6 +18,7 @@ import Head from "next/head";
 import path from "path";
 import { supabase } from "../utils/supabaseClient";
 import { Session } from "@supabase/supabase-js";
+import Login from "./auth/login";
 
 function App({ Component, pageProps }: AppProps) {
   let [scrolled, setScrolled] = useState(false);
@@ -28,11 +30,6 @@ function App({ Component, pageProps }: AppProps) {
       if (window.scrollY > 100) setScrolled(true);
       if (window.scrollY < 100) setScrolled(false);
       console.log(scrolled);
-    });
-
-    setSession(supabase.auth.session());
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
     });
   }, [scrolled]);
 
@@ -49,7 +46,7 @@ function App({ Component, pageProps }: AppProps) {
       />
     );
   });
-  const HomePage: React.FC = () => (
+  return (
     <>
       <Head>
         <meta name="description" content="A Real bank for Real people" />
@@ -99,8 +96,6 @@ function App({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
     </>
   );
-
-  return <div>{session ? <HomePage /> : router.push("/auth/login")}</div>;
 }
 
 export default App;
