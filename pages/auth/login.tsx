@@ -1,12 +1,8 @@
 import { Session } from "@supabase/supabase-js";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { supabase } from "../../utils/supabaseClient";
-import { basePath } from "../../utils/config";
-import Cookies from "js-cookie";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);

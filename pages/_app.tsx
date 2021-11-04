@@ -1,42 +1,18 @@
-import Home from ".";
-import app, { AppProps } from "next/app";
-import Router, { useRouter } from "next/router";
-import { NextResponse, NextRequest } from "next/server";
+import { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import "../styles/globals.scss";
-import { JSXElementConstructor, useEffect, useState } from "react";
-import fs from "fs";
-// import dotenv from "dotenv";
-
-// dotenv.config({
-// 	path: path.resolve(__dirname, "../.env"),
-// });
-
+import { useEffect, useState } from "react";
 import React from "react";
 import Head from "next/head";
-import path from "path";
-import { supabase } from "../utils/supabaseClient";
 import { Session } from "@supabase/supabase-js";
-import Login from "./auth/login";
 
 function App({ Component, pageProps }: AppProps) {
   let [scrolled, setScrolled] = useState(false);
+  let [burgerActive, setBurgerActive] = useState(false);
   let [session, setSession] = useState<Session | null>(null);
   let router = useRouter();
-
-  const getUser = new Promise(async () => {
-    const token: string | undefined = await supabase.auth.session()
-      ?.access_token;
-    await fetch("/api/checkauth", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Supabase-Auth": token ? token : "",
-      },
-    });
-  });
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -99,14 +75,33 @@ function App({ Component, pageProps }: AppProps) {
           <Link href="/products">Products</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/auth/login">Log in</Link>
-          <div id="burger">
+          <div
+            id="burger"
+            onClick={() => {
+              setBurgerActive(!burgerActive);
+            }}
+          >
             <div className="block"></div>
             <div className="block"></div>
             <div className="block"></div>
           </div>
         </div>
+        <div
+          className={burgerActive ? "burgerMenu burgerActive" : "burgerMenu"}
+        >
+          <div className="wrapper">
+            <Link href="/">Home</Link>
+            <Link href="/about">Who we are</Link>
+            <Link href="/investments">Investments</Link>
+            <Link href="/products">Products</Link>
+            <Link href="/contact">Products</Link>
+            <Link href="/auth/login">Log in</Link>
+          </div>
+        </div>
       </nav>
-      <Component {...pageProps} />
+      <div className="area-51">
+        <Component {...pageProps} />
+      </div>
     </>
   );
 }

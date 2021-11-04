@@ -1,15 +1,24 @@
 import { Session } from "@supabase/supabase-js";
 import Cookies from "js-cookie";
-import { Router, useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { basePath } from "../../utils/config";
-import { supabase } from "../../utils/supabaseClient";
+import { useRouter } from "next/router";
+import { useState } from "react";
+
+/*
+  Hello future people reading this,
+  I hope you like the code as I spent almost a week learning a new framework.
+
+
+*/
 
 export async function getServerSideProps() {
   let cookie = Cookies.get("auth");
-  if (cookie) console.log("Cookie Found");
+  try {
+    console.log(cookie);
+  } catch (e) {
+    console.log("Error getting cookies");
+  }
 
-  return { props: { cookie } };
+  return { props: {} };
 }
 
 export default function Account({ cookie }: any) {
@@ -19,7 +28,7 @@ export default function Account({ cookie }: any) {
 
   return (
     <>
-      <h1>{Cookie}</h1>
+      <h1>{cookie}</h1>
     </>
   );
 }
