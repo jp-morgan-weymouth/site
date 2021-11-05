@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import "../styles/globals.scss";
+import "../styles/modal.scss";
 import { useEffect, useState } from "react";
 import React from "react";
 import Head from "next/head";

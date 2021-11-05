@@ -1,0 +1,121 @@
+.cover {
+  width: 100vw;
+  height: calc(100vh - 12.1vh);
+
+  position: fixed;
+  top: 12.1vh;
+
+  background: rgba(0, 0, 0, 0.9);
+
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 5vw;
+
+  .center {
+    width: 40%;
+    height: 50%;
+
+    background: #fff;
+
+    border-radius: 0.1em 0.5em;
+
+    font-size: 4rem;
+
+    background: #101010;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    .auth-input {
+      width: 75%;
+      height: 9vh;
+
+      border: 0;
+      border-radius: 0.1em;
+
+      background-color: rgba(255, 255, 255, 0.075);
+      color: #ffffff;
+
+      box-sizing: border-box;
+      padding: 0 1em;
+
+      outline: none;
+
+      transition: all 50ms ease;
+
+      &:active,
+      &:focus {
+        border-bottom: 2px solid #00ff75;
+      }
+    }
+
+    .button-holder {
+      display: flex;
+      gap: 0.25em;
+
+      width: 75%;
+    }
+
+    .auth-button-primary {
+      background-color: #00ff75;
+      border: 0;
+      border-radius: 0.1em 0.5em;
+
+      color: #101010;
+
+      width: 75%;
+      height: 7.5vh;
+
+      cursor: pointer;
+
+      font-size: 1.25rem;
+
+      flex: 1;
+
+      &:hover {
+        background-color: #00ff75aa;
+      }
+    }
+    .auth-button-negative {
+      background-color: transparent;
+      border: 2px solid #00ff75;
+      border-radius: 0.1em 0.5em;
+
+      color: #00ff75;
+
+      width: 75%;
+      height: 7.5vh;
+
+      cursor: pointer;
+
+      font-size: 1.25rem;
+
+      flex: 1;
+
+      &:hover {
+        background: #00ff7522;
+      }
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
