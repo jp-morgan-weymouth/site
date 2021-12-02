@@ -1,6 +1,13 @@
-import { createContext, Dispatch, useContext, useState } from "react";
+import {
+  ContextType,
+  createContext,
+  Dispatch,
+  FC,
+  useContext,
+  useState,
+} from "react";
 
-let AuthContext = createContext({
+let AuthContext: any = createContext({
   isAuthenticated: false,
   setAuthenticated: (val: any): Dispatch<any> => val,
 });
@@ -13,7 +20,7 @@ interface authProvider {
   };
 }
 
-export const authProvider = ({ children, authenticated }: authProvider) => {
+const AuthProvider: FC<any> = ({ children, authenticated }: authProvider) => {
   const [isAuthenticated, setAuthenticated] = useState<any>(authenticated);
   return (
     <AuthContext.Provider
@@ -36,6 +43,8 @@ export const useAuth = () => {
 };
 
 export const useIsAuthenticated = () => {
-  const context = useAuth();
+  const context: any = useAuth();
   return context.isAuthenticated;
 };
+
+export default AuthProvider;

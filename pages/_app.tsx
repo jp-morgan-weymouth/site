@@ -4,12 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import "../styles/globals.scss";
 import "../styles/modal.scss";
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
 import React from "react";
 import Head from "next/head";
 import { Session } from "@supabase/supabase-js";
+import AuthProvider from "../utils/auth.provider";
+import cookie from "cookie";
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps, authenticated }: any) {
   let [scrolled, setScrolled] = useState(false);
   let [burgerActive, setBurgerActive] = useState(false);
   let [session, setSession] = useState<Session | null>(null);
@@ -22,6 +24,20 @@ function App({ Component, pageProps }: AppProps) {
       console.log(scrolled);
     });
   }, [scrolled]);
+
+  const GetInitialProps = async (appContext: any) => {
+    let authenticated = false;
+    const request = appContext.ctx.req;
+
+    if (request) {
+      request.cookies = cookie.parse(request.headers.cookie || "");
+      authenticated = !!request.cookie.auth;
+    }
+
+    const appProps: any = await GetInitialProps(appContext);
+
+    return { ...appProps, authenticated };
+  };
 
   const LogoImage = React.forwardRef(function LogoImage(props: any, ref: any) {
     return (
@@ -37,7 +53,7 @@ function App({ Component, pageProps }: AppProps) {
     );
   });
   return (
-    <>
+    <AuthProvider authenticated={authenticated}>
       <Head>
         <meta name="description" content="A Real bank for Real people" />
         <meta name="theme-color" content="#00ff75" />
@@ -103,7 +119,7 @@ function App({ Component, pageProps }: AppProps) {
       <div className="area-51">
         <Component {...pageProps} />
       </div>
-    </>
+    </AuthProvider>
   );
 }
 

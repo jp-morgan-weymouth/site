@@ -1,3 +1,11 @@
+/*
+
+  Welcome to the perfectly legit bank.
+  If you are reading this file then you should
+    join us @ https://jobs.plb.money/developer
+
+*/
+
 $color-primary: #00ff75;
 $color-secondary: #ffffff;
 $background: #101010;
@@ -142,7 +150,7 @@ a {
 
   .scrollarea {
     width: 100vw;
-    height: 100%;
+    min-height: auto;
 
     background-color: #101010;
 
@@ -153,6 +161,72 @@ a {
     left: 0;
 
     z-index: 2;
+
+    article {
+      width: 100vw;
+      min-height: auto;
+
+      overflow-y: hidden;
+
+      box-sizing: border-box;
+      padding-top: 4vh;
+      padding-bottom: 4vh;
+      padding-left: 7.5vw;
+      padding-right: 7.5vw;
+      color: $color-secondary;
+
+      .about-header {
+        font-size: 3rem;
+        line-height: 100%;
+      }
+
+      .about-subheader {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.6);
+
+        font-family: "PulseReg";
+      }
+
+      .about-content {
+        font-size: 1rem;
+        min-width: auto;
+
+        display: inline-block;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        background: #171717;
+
+        padding-left: 25px;
+        padding-right: 50px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+        margin-bottom: 5vh;
+
+        .about-content-image {
+          aspect-ratio: 1;
+          float: right;
+          right: 0;
+
+          position: relative;
+          top: 0;
+
+          flex: 1;
+        }
+
+        .about-content-text {
+          height: 100%;
+          display: inline-block;
+
+          box-sizing: border-box;
+
+          flex: 3;
+        }
+      }
+    }
   }
 }
 
@@ -582,6 +656,28 @@ nav {
     .form {
       width: calc(100% - 10vw) !important;
       height: calc(100% - 5vh) !important;
+    }
+  }
+
+  .about-content {
+    flex-direction: column;
+
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    margin-bottom: 5vh;
+
+    .about-content-text {
+      flex: 2;
+    }
+
+    .about-content-image {
+      flex: 1;
+      margin-top: 5vh;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
     }
   }
 }
