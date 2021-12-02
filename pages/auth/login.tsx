@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable unused-imports/no-unused-vars */
 import { Session } from "@supabase/supabase-js";
 import Head from "next/head";
 import { useRouter } from "next/router";

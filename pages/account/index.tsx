@@ -1,3 +1,5 @@
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable no-unused-vars */
 import { Session } from "@supabase/supabase-js";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
