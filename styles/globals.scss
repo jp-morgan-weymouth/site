@@ -50,6 +50,7 @@ a {
 * {
   box-sizing: border-box;
   overflow-x: hidden;
+  object-fit: cover;
 }
 
 .main {
@@ -57,7 +58,7 @@ a {
   height: 100%;
   min-height: 100vh;
 
-  overflow-x: none;
+  overflow-x: hidden;
   overflow-y: auto;
 
   position: absolute;
@@ -150,7 +151,12 @@ a {
 
   .scrollarea {
     width: 100vw;
-    min-height: auto;
+    height: fit-content;
+    // min-height: 100vh;
+
+    display: inline-block;
+
+    overflow-y: visible;
 
     background-color: #101010;
 
@@ -164,9 +170,8 @@ a {
 
     article {
       width: 100vw;
-      min-height: auto;
-
-      overflow-y: hidden;
+      // min-height: 100vh;
+      // height: 100%;
 
       box-sizing: border-box;
       padding-top: 4vh;
@@ -174,6 +179,12 @@ a {
       padding-left: 7.5vw;
       padding-right: 7.5vw;
       color: $color-secondary;
+
+      overflow-y: visible;
+
+      position: relative;
+      top: 0;
+      left: 0;
 
       .about-header {
         font-size: 3rem;
@@ -190,6 +201,9 @@ a {
       .about-content {
         font-size: 1rem;
         min-width: auto;
+        min-height: 20vh;
+
+        overflow-y: visible;
 
         display: inline-block;
 
@@ -204,7 +218,9 @@ a {
         padding-top: 25px;
         padding-bottom: 25px;
 
-        margin-bottom: 5vh;
+        &:not(:last-of-type) {
+          margin-bottom: 5vh;
+        }
 
         .about-content-image {
           aspect-ratio: 1;
@@ -235,7 +251,7 @@ a {
   height: 100%;
   min-height: 100vh;
 
-  overflow-x: none;
+  overflow-x: hidden;
   overflow-y: auto;
 
   position: absolute;
@@ -311,7 +327,7 @@ a {
   height: 100%;
   min-height: 100vh;
 
-  overflow-x: none;
+  overflow-x: hidden;
   overflow-y: auto;
 
   position: absolute;
@@ -713,4 +729,15 @@ nav {
   position: absolute;
   left: 0;
   top: 12.1vh;
+}
+
+footer {
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+  bottom: 0;
+
+  color: #ffffff;
+
+  text-align: center;
 }

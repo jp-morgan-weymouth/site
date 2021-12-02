@@ -49,8 +49,8 @@ export default function Home() {
           </h1>
           <div className="about-content">
             <span className="about-content-text">
-              <h3 className="about-content-text-header">Our Founder/CEO</h3>
-              Hello, my name is Bryony Bell.
+              <h3 className="about-content-text-header">Our CEO</h3>
+              Hello, my name is Brennan Richmond.
               <br />I created this company because I do not trust the
               centralisation of banking. Decentralisation is our future, and our
               future is reality.
@@ -67,12 +67,13 @@ export default function Home() {
               censorship heavily; with the new web, you will be able to view and
               consume non-censored material to your pleasing whenever you want.
             </span>
-            <img
-              src="https://via.placeholder.com/400"
-              className="about-content-image"
-            />
+            <img src="/images/rhys.gif" className="about-content-image" />
           </div>
         </article>
+        <footer>
+          <h1>For educational purposes only!</h1>
+          <h2>&copy; Rhys Woolcott 2021 - {new Date().getFullYear()}</h2>
+        </footer>
       </section>
     </div>
   );
