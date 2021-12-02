@@ -1,20 +1,21 @@
-import { AppProps } from "next/app";
+/* eslint-disable no-unused-vars */
+// import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import "../styles/globals.scss";
 import "../styles/modal.scss";
-import { Component, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Head from "next/head";
-import { Session } from "@supabase/supabase-js";
+// import { Session } from "@supabase/supabase-js";
 import AuthProvider from "../utils/auth.provider";
-import cookie from "cookie";
+// import cookie from "cookie";
 
 function App({ Component, pageProps, authenticated }: any) {
   let [scrolled, setScrolled] = useState(false);
   let [burgerActive, setBurgerActive] = useState(false);
-  let [session, setSession] = useState<Session | null>(null);
+  // let [session, setSession] = useState<Session | null>(null);
   let router = useRouter();
 
   useEffect(() => {
@@ -25,21 +26,24 @@ function App({ Component, pageProps, authenticated }: any) {
     });
   }, [scrolled]);
 
-  const GetInitialProps = async (appContext: any) => {
-    let authenticated = false;
-    const request = appContext.ctx.req;
+  // const GetInitialProps = async (appContext: any) => {
+  //   let authenticated = false;
+  //   const request = appContext.ctx.req;
 
-    if (request) {
-      request.cookies = cookie.parse(request.headers.cookie || "");
-      authenticated = !!request.cookie.auth;
-    }
+  //   if (request) {
+  //     request.cookies = cookie.parse(request.headers.cookie || "");
+  //     authenticated = !!request.cookie.auth;
+  //   }
 
-    const appProps: any = await GetInitialProps(appContext);
+  //   const appProps: any = await GetInitialProps(appContext);
 
-    return { ...appProps, authenticated };
-  };
+  //   return { ...appProps, authenticated };
+  // };
 
-  const LogoImage = React.forwardRef(function LogoImage(props: any, ref: any) {
+  const LogoImage = React.forwardRef(function LogoImage(
+    _props: any,
+    _ref: any
+  ) {
     return (
       <Image
         onClick={() => router.push("/")}
